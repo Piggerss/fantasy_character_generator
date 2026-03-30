@@ -1,8 +1,19 @@
 # frozen_string_literal: true
 
+require "yaml"
+
 require_relative "fantasy_character_generator/version"
+require_relative "fantasy_character_generator/item"
+require_relative "fantasy_character_generator/weapon"
+require_relative "fantasy_character_generator/armor"
+require_relative "fantasy_character_generator/attributes"
+require_relative "fantasy_character_generator/inventory"
+require_relative "fantasy_character_generator/race"
+require_relative "fantasy_character_generator/character_class"
+require_relative "fantasy_character_generator/character"
+require_relative "fantasy_character_generator/data_repository"
+require_relative "fantasy_character_generator/support/randomizer"
+require_relative "fantasy_character_generator/generator/character_generator"
 
 module FantasyCharacterGenerator
-  class Error < StandardError; end
-  # Your code goes here...
 end

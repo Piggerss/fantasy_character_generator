@@ -1,0 +1,21 @@
+- name: Human
+  description: Versatile and ambitious people found in nearly every land.
+  attribute_modifiers:
+    strength: 1
+    dexterity: 1
+    constitution: 1
+    intelligence: 1
+    wisdom: 1
+    charisma: 1
+- name: Elf
+  description: Graceful folk known for keen senses and long lives.
+  attribute_modifiers:
+    dexterity: 2
+- name: Dwarf
+  description: Stout and hardy people with a tradition of craft and endurance.
+  attribute_modifiers:
+    constitution: 2
+- name: Halfling
+  description: Small, clever wanderers with quick feet and calm spirits.
+  attribute_modifiers:
+    dexterity: 2

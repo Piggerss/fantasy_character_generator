@@ -1,0 +1,44 @@
+Human:
+  first_names:
+    - Aric
+    - Elena
+    - Tomas
+    - Mira
+  last_names:
+    - Stone
+    - Weller
+    - Brightwood
+    - Ashford
+Elf:
+  first_names:
+    - Aelar
+    - Lirael
+    - Thalion
+    - Sylwen
+  last_names:
+    - Moonwhisper
+    - Starbloom
+    - Silverleaf
+    - Dawnsong
+Dwarf:
+  first_names:
+    - Brom
+    - Hilda
+    - Orin
+    - Sigrid
+  last_names:
+    - Ironfist
+    - Stonehelm
+    - Emberforge
+    - Deepdelver
+Halfling:
+  first_names:
+    - Pippa
+    - Milo
+    - Nora
+    - Finn
+  last_names:
+    - Goodbarrel
+    - Underbough
+    - Tealeaf
+    - Hilltopple

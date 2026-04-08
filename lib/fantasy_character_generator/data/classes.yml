@@ -1,0 +1,31 @@
+- name: Fighter
+  description: A trained warrior who excels with arms and armor.
+  hit_die: 10
+  starting_equipment_rules:
+    - ["Longsword", "Battleaxe", "Spear"]
+    - ["Chain Mail", "Leather Armor"]
+    - Shield
+    - Explorer's Pack
+- name: Wizard
+  description: A scholar of magic who relies on knowledge and preparation.
+  hit_die: 6
+  starting_equipment_rules:
+    - ["Quarterstaff", "Dagger"]
+    - Spellbook
+    - Scholar's Pack
+- name: Rogue
+  description: A nimble specialist who favors stealth, skill, and precision.
+  hit_die: 8
+  starting_equipment_rules:
+    - ["Shortsword", "Dagger", "Shortbow"]
+    - ["Leather Armor", "Padded Armor"]
+    - Thieves' Tools
+    - Burglar's Pack
+- name: Cleric
+  description: A devoted servant of the divine who blends magic and resilience.
+  hit_die: 8
+  starting_equipment_rules:
+    - ["Mace", "Warhammer"]
+    - ["Scale Mail", "Leather Armor"]
+    - Shield
+    - Priest's Pack

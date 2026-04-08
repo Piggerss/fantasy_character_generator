@@ -1,0 +1,154 @@
+weapons:
+  - type: weapon
+    name: Dagger
+    description: A small blade that is easy to conceal.
+    weight: 1
+    value: 2
+    damage: 1d4
+    damage_type: piercing
+    range_type: melee
+    properties: [light, finesse, thrown]
+  - type: weapon
+    name: Longsword
+    description: A reliable martial blade.
+    weight: 3
+    value: 15
+    damage: 1d8
+    damage_type: slashing
+    range_type: melee
+    properties: [versatile]
+  - type: weapon
+    name: Battleaxe
+    description: A heavy axe favored by sturdy warriors.
+    weight: 4
+    value: 10
+    damage: 1d8
+    damage_type: slashing
+    range_type: melee
+    properties: [versatile]
+  - type: weapon
+    name: Spear
+    description: A simple weapon useful in close quarters or at range.
+    weight: 3
+    value: 1
+    damage: 1d6
+    damage_type: piercing
+    range_type: melee
+    properties: [thrown, versatile]
+  - type: weapon
+    name: Quarterstaff
+    description: A wooden staff balanced for travel and combat.
+    weight: 4
+    value: 0
+    damage: 1d6
+    damage_type: bludgeoning
+    range_type: melee
+    properties: [versatile]
+  - type: weapon
+    name: Shortsword
+    description: A nimble blade popular with duelists and rogues.
+    weight: 2
+    value: 10
+    damage: 1d6
+    damage_type: piercing
+    range_type: melee
+    properties: [finesse, light]
+  - type: weapon
+    name: Shortbow
+    description: A ranged weapon for hunters and scouts.
+    weight: 2
+    value: 25
+    damage: 1d6
+    damage_type: piercing
+    range_type: ranged
+    properties: [two-handed]
+  - type: weapon
+    name: Mace
+    description: A solid one-handed weapon with a heavy head.
+    weight: 4
+    value: 5
+    damage: 1d6
+    damage_type: bludgeoning
+    range_type: melee
+    properties: []
+  - type: weapon
+    name: Warhammer
+    description: A brutal hammer built for armored fights.
+    weight: 2
+    value: 15
+    damage: 1d8
+    damage_type: bludgeoning
+    range_type: melee
+    properties: [versatile]
+armors:
+  - type: armor
+    name: Padded Armor
+    description: Quilted armor offering light protection.
+    weight: 8
+    value: 5
+    armor_bonus: 1
+    armor_type: light
+    dex_bonus_allowed: true
+  - type: armor
+    name: Leather Armor
+    description: Hardened leather that stays flexible in motion.
+    weight: 10
+    value: 10
+    armor_bonus: 1
+    armor_type: light
+    dex_bonus_allowed: true
+  - type: armor
+    name: Chain Mail
+    description: Interlocking rings that provide solid defense.
+    weight: 55
+    value: 75
+    armor_bonus: 6
+    armor_type: heavy
+    dex_bonus_allowed: false
+  - type: armor
+    name: Scale Mail
+    description: Overlapping metal scales for battlefield durability.
+    weight: 45
+    value: 50
+    armor_bonus: 4
+    armor_type: heavy
+    dex_bonus_allowed: false
+  - type: armor
+    name: Shield
+    description: A defensive shield carried in one hand.
+    weight: 6
+    value: 10
+    armor_bonus: 2
+    armor_type: shield
+    dex_bonus_allowed: true
+gear:
+  - type: item
+    name: Explorer's Pack
+    description: A practical collection of travel supplies.
+    weight: 15
+    value: 10
+  - type: item
+    name: Scholar's Pack
+    description: Notes, ink, and field supplies for study.
+    weight: 10
+    value: 12
+  - type: item
+    name: Burglar's Pack
+    description: A useful kit for sneaking and scouting.
+    weight: 12
+    value: 16
+  - type: item
+    name: Priest's Pack
+    description: Religious supplies and everyday essentials.
+    weight: 11
+    value: 15
+  - type: item
+    name: Spellbook
+    description: A wizard's personal book of magical notes.
+    weight: 3
+    value: 50
+  - type: item
+    name: Thieves' Tools
+    description: Picks and implements used to open locks and disable traps.
+    weight: 1
+    value: 25

@@ -7,7 +7,11 @@ class TestFantasyCharacterGenerator < Minitest::Test
     refute_nil ::FantasyCharacterGenerator::VERSION
   end
 
-  def test_it_does_something_useful
-    assert false
+  def test_generator_is_available_from_main_require
+    generator = FantasyCharacterGenerator::Generator::CharacterGenerator.new(
+      randomizer: FantasyCharacterGenerator::Support::Randomizer.new(seed: 123)
+    )
+
+    assert_instance_of(FantasyCharacterGenerator::Character, generator.generate)
   end
 end

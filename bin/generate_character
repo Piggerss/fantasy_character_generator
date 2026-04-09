@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+begin
+  require "fantasy_character_generator"
+rescue LoadError
+  $LOAD_PATH.unshift("lib") unless $LOAD_PATH.include?("lib")
+  require "fantasy_character_generator"
+end
+
+character = FantasyCharacterGenerator::Generator::CharacterGenerator.new.generate
+puts character.summary

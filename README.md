@@ -1,39 +1,76 @@
 # FantasyCharacterGenerator
 
-TODO: Delete this and the text below, and describe your gem
+`fantasy_character_generator` is a small educational Ruby gem that generates simple fantasy RPG characters.
+It is designed to demonstrate class design, composition, YAML-backed data loading, and deterministic testing.
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/fantasy_character_generator`. To experiment with that code, run `bin/console` for an interactive prompt.
+## Design goals
+
+- Prefer composition over inheritance.
+- Keep domain classes small and focused.
+- Keep the generation flow in one readable service object.
+- Keep game rules intentionally simplified for learning.
+
+## Simplified architecture
+
+The project is intentionally small:
+
+- domain objects such as `Character`, `Race`, `CharacterClass`, and `Inventory`
+- one `DataRepository` that loads YAML files into objects
+- one `CharacterGenerator` that orchestrates the whole character creation flow
+- one `Randomizer` that keeps randomness deterministic in tests
 
 ## Installation
 
-TODO: Replace `UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG` with your gem name right after releasing it to RubyGems.org. Please do not do it earlier due to security reasons. Alternatively, replace this section with instructions to install your gem from git if you don't plan to release to RubyGems.org.
-
-Install the gem and add to the application's Gemfile by executing:
-
 ```bash
-bundle add UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
-```
-
-If bundler is not being used to manage dependencies, install the gem by executing:
-
-```bash
-gem install UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
+bundle install
 ```
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+require "fantasy_character_generator"
 
-## Development
+generator = FantasyCharacterGenerator::Generator::CharacterGenerator.new
+character = generator.generate
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+puts character.summary
+puts character.to_h
+```
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+You can also inject a deterministic randomizer:
 
-## Contributing
+```ruby
+randomizer = FantasyCharacterGenerator::Support::Randomizer.new(seed: 1234)
+generator = FantasyCharacterGenerator::Generator::CharacterGenerator.new(randomizer: randomizer)
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/fantasy_character_generator.
+character = generator.generate(character_class_name: "Wizard")
+puts character.summary
+```
 
-## License
+## Simplified rules
 
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+- Attributes are generated with `3d6`.
+- Racial modifiers are applied after base attributes are rolled.
+- Hit points are `class hit die + Constitution modifier`, with a minimum of 1.
+- Equipment comes only from simple class-based rules.
+- A generated hero only contains the essentials: name, race, class, attributes, HP, and inventory.
+
+## Example script
+
+Run:
+
+```bash
+ruby bin/generate_character
+```
+
+For a longer manual demo with multiple API examples:
+
+```bash
+ruby test.rb
+```
+
+## Testing
+
+```bash
+bundle exec ruby test/run_all_tests.rb
+```

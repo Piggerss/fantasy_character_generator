@@ -1,23 +1,21 @@
 # FantasyCharacterGenerator
 
 `fantasy_character_generator` is a small educational Ruby gem that generates simple fantasy RPG characters.
-It is designed to demonstrate class design, composition, YAML-backed data loading, and deterministic testing.
+It demonstrates plain Ruby classes, composition, YAML-backed data loading, and deterministic tests.
 
-## Design goals
+## Design Goals
 
 - Prefer composition over inheritance.
-- Keep domain classes small and focused.
-- Keep the generation flow in one readable service object.
-- Keep game rules intentionally simplified for learning.
+- Keep domain classes small and readable.
+- Keep generation rules simple and explicit.
+- Use one `Randomizer` object so tests can be deterministic.
 
-## Simplified architecture
+## Current Features
 
-The project is intentionally small:
-
-- domain objects such as `Character`, `Race`, `CharacterClass`, and `Inventory`
-- one `DataRepository` that loads YAML files into objects
-- one `CharacterGenerator` that orchestrates the whole character creation flow
-- one `Randomizer` that keeps randomness deterministic in tests
+- Generates a character name, race, class, attributes, HP, and inventory.
+- Loads races, classes, names, and equipment from YAML files.
+- Supports deterministic generation with a seeded randomizer.
+- Keeps item inheritance intentionally small: `Weapon < Item` and `Armor < Item`.
 
 ## Installation
 
@@ -37,40 +35,51 @@ puts character.summary
 puts character.to_h
 ```
 
-You can also inject a deterministic randomizer:
+Generate with a fixed race or class:
+
+```ruby
+character = generator.generate(race_name: "Elf", character_class_name: "Wizard")
+puts character.summary
+```
+
+Use deterministic randomness:
 
 ```ruby
 randomizer = FantasyCharacterGenerator::Support::Randomizer.new(seed: 1234)
 generator = FantasyCharacterGenerator::Generator::CharacterGenerator.new(randomizer: randomizer)
 
-character = generator.generate(character_class_name: "Wizard")
-puts character.summary
+puts generator.generate.summary
 ```
 
-## Simplified rules
+## Simplified Rules
 
 - Attributes are generated with `3d6`.
 - Racial modifiers are applied after base attributes are rolled.
 - Hit points are `class hit die + Constitution modifier`, with a minimum of 1.
-- Equipment comes only from simple class-based rules.
-- A generated hero only contains the essentials: name, race, class, attributes, HP, and inventory.
+- Equipment comes from simple class-based starting equipment rules.
 
-## Example script
+## Examples
 
-Run:
+Generate and print one character:
 
 ```bash
 ruby bin/generate_character
 ```
 
-For a longer manual demo with multiple API examples:
+Run a longer manual demo with multiple API examples:
 
 ```bash
-ruby test.rb
+ruby examples/demo.rb
 ```
 
 ## Testing
 
 ```bash
 bundle exec ruby test/run_all_tests.rb
+```
+
+You can also run:
+
+```bash
+bundle exec rake test
 ```
